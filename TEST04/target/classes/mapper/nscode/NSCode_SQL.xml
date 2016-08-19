@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="NSCode">
+
+
+    <select id="selectNSCodeList" parameterType="hashmap" resultType="hashmap">
+        <![CDATA[
+            SELECT
+            	IDX,
+                CODE,
+                CODE_NAME,
+                CREATE_DATE
+            FROM
+                TB_NSCODE
+            
+            ORDER BY IDX DESC
+        ]]>
+    </select>     
+    
+    
+    <insert id="insertNSCode" parameterType="hashmap">
+		<![CDATA[
+			INSERT INTO TB_NSCODE
+				(CODE, 
+				CODE_NAME,
+				CREATE_DATE)
+			VALUES (
+				 #{code}
+				, #{code_name}
+				, CURDATE())
+		]]>
+	</insert>
+
+</mapper>
